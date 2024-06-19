@@ -47,9 +47,13 @@ export function Converter() {
           type="number"
           placeholder="Digite o valor aqui..."
           value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
         <span>Selecione as moedas:</span>
-        <select value={fromCurrency}>
+        <select
+          value={fromCurrency}
+          onChange={(e) => setFromCurrency(e.target.value)}
+        >
           {Object.keys(rates).map((currency) => (
             <option key={currency} value={currency}>
               {currency}
@@ -57,7 +61,10 @@ export function Converter() {
           ))}
         </select>
         <span>Para</span>
-        <select value={toCurrency}>
+        <select
+          value={toCurrency}
+          onChange={(e) => setToCurrency(e.target.value)}
+        >
           {Object.keys(rates).map((currency) => (
             <option value={currency} key={currency}>
               {currency}
